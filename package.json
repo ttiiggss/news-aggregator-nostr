@@ -1,0 +1,25 @@
+{
+  "name": "nostr-longform-reader",
+  "version": "1.0.0",
+  "description": "A web application to read longform content from Nostr relays",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server . -p 3000 -o",
+    "dev": "npx http-server . -p 3000 -o -c-1"
+  },
+  "dependencies": {
+    "nostr-tools": "^2.1.0"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "keywords": [
+    "nostr",
+    "longform",
+    "reader",
+    "highlighter",
+    "habla"
+  ],
+  "author": "",
+  "license": "MIT"
+} 

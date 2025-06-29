@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nostr Longform Reader</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">
+                    <i class="fas fa-scroll"></i>
+                    Nostr Longform Reader
+                </h1>
+                <div class="header-controls">
+                    <div class="connection-status">
+                        <div id="relay-status" class="status-indicator">
+                            <i class="fas fa-circle"></i>
+                            <span>Connecting...</span>
+                        </div>
+                    </div>
+                    <div class="relay-button-container">
+                        <button id="relay-button" class="relay-button">
+                            <i class="fas fa-satellite-dish"></i>
+                            <span id="relay-count">0/10</span>
+                            <span class="relay-text">Relays</span>
+                        </button>
+                        <div id="relay-tooltip" class="relay-tooltip">
+                            <h3>Relay Connections</h3>
+                            <div id="relay-details" class="relay-details">
+                                <!-- Relay details will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="source-filter">Source:</label>
+                    <select id="source-filter">
+                        <option value="all">All Sources</option>
+                        <option value="highlighter">Highlighter.com</option>
+                        <option value="habla">Habla.news</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="sort-filter">Sort by:</label>
+                    <select id="sort-filter">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                    </select>
+                </div>
+                <button id="refresh-btn" class="refresh-btn">
+                    <i class="fas fa-sync-alt"></i>
+                    Refresh
+                </button>
+            </div>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Loading longform posts...</p>
+            </div>
+
+            <div class="posts-container" id="posts-container">
+                <!-- Posts will be dynamically inserted here -->
+            </div>
+
+            <div class="no-posts" id="no-posts" style="display: none;">
+                <i class="fas fa-file-alt"></i>
+                <h3>No posts found</h3>
+                <p>Try refreshing or check your connection status.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>About</h3>
+                    <p>This reader aggregates long-form content from Nostr-enabled platforms like Highlighter.com and Habla.news.</p>
+                </div>
+                <div class="footer-stats">
+                    <div class="stat">
+                        <span class="stat-value" id="total-posts">0</span>
+                        <span class="stat-label">Posts Loaded</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value" id="connected-relays">0</span>
+                        <span class="stat-label">Connected Relays</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html> 
